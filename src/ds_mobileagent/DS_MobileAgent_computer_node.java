@@ -8,7 +8,7 @@ import java.net.Socket;
  *
  * @author hp
  */
-public class DS_MobileAgent_cllinet {
+public class DS_MobileAgent_computer_node {
 
     /**
      * @param args the command line arguments
@@ -38,19 +38,19 @@ public class DS_MobileAgent_cllinet {
                 dos.flush();
                 }
                 server_response = dis.readUTF();
-                if("get nedded data".equals(server_response)){
+                if("get location and destination".equals(server_response)){
                  /*connect to sensor node and get the readings from it */
-                dos.writeUTF("nedded data");
+                dos.writeUTF("nedded location and destination");
                 dos.flush();
                 }
                 server_response = dis.readUTF();
-                if("calculate recommended route".equals(server_response)){
+                if("send recommendation".equals(server_response)){
                  // perfore some calculation to know the best route
-                dos.writeUTF("close connection");
+                dos.writeUTF("end connection");
                 dos.flush();
                 }
                 server_response = dis.readUTF();
-                if("closed".equals(server_response)){
+                if("ended bye".equals(server_response)){
                     break;
                 }
             }
